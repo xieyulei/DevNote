@@ -56,7 +56,7 @@ NavController:这是一个Java/Kotlin对象，用于在代码中完成Navigation
 	//defaultHost 属性为true,则该Fragment会自动处理系统返回键，即当用户按下手机的返回按钮时，系统将当前展示的Fragment退出;
 	app:defaultNavHost="true"    
     
-	//navGraph 用于设置改Fragment对应的导航图
+	//navGraph 用于设置该Fragment对应的导航图
 	app:navGraph="@navigation/nav_graph"        
     
 // 3.创建destination
@@ -111,14 +111,14 @@ Fragment的切换经常伴随着参数的传递，为了配合Navigation组件�
 	Bundle bundle = new Bundle();
 	if(bundle != null){
         String userName = bundle.getString("user_name");
-        int agee = bundle.getInt("age");
+        int age = bundle.getInt("age");
     }
     
 // 2.使用safe args传递参数    
 	
 	// 安装插件：
         dependencies {
-        	def nav = "2.3.0-alpha01"	
+        	def nav = "2.3.0-alpha01"
 			classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav"                
     	}
 	
@@ -142,8 +142,7 @@ Fragment的切换经常伴随着参数的传递，为了配合Navigation组件�
 	if(bundle != null){
 		String userName = MainFragmentArgs.fromBundle(getArguments()).getUserName();
         int age = MainFragmentArgs.fromBundle(getArguments().getAge();
-    }
-
+  	}                                              
 ```
 
 #### **6. 使用NavigationUI切换导航以及App bar**
@@ -276,7 +275,7 @@ private PendingIntent getPendingIntent(){
 
     例如：<deepLink app:uri="www.baidu.com/{params}">
 
-第二步：为Activity设置<nav-graph/>        标签，当用户在web页面中访问你的网址时，应用程序便能够得到监听.
+第二步：为Activity设置<nav-graph/>标签，当用户在web页面中访问你的网址时，应用程序便能够得到监听.
         
 第三步：使用adb工具进行测试
 	键入：adb shell am start -a android.intent.action.VIEW -d "http://www.baidu.com/Parms from notification"
